@@ -2,6 +2,25 @@
 import unittest
 from app import app
 
+"""
+This test suite contains tests for the /characters and /characters/<id> endpoints.
+
+TestGetCharacters:
+- setUp: Initializes the test client.
+- get_characters: Makes a GET request to /characters with limit and skip values.
+- test_pagination_with_default_values: Tests /characters with default limit and skip.
+- test_pagination_with_valid_values: Tests /characters with valid limit and skip.
+- test_pagination_with_invalid_limit: Tests /characters with an invalid limit.
+- test_pagination_with_invalid_skip: Tests /characters with an invalid skip.
+
+CharacterAPITestCase:
+- setUp: Initializes the test client.
+- get_character_by_id_success: Tests /characters/<id> with a valid ID.
+- get_character_by_id_not_found: Tests /characters/<id> with an invalid ID.
+
+The tests use assertEqual and assertIn to verify the response status and data.
+Run the tests with unittest.main().
+"""
 
 class TestGetCharacters(unittest.TestCase):
 
