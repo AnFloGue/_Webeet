@@ -1,13 +1,15 @@
-from unittest.mock import patch
-
 from flask import Flask, request, jsonify
 import json
 
 app = Flask(__name__)
 
 # Loading JSON data into a list.
-with open("characters.json", "r") as file:
-    characters = json.load(file)
+try:
+    with open("characters.json", "r") as file:
+        characters = json.load(file)
+except FileNotFoundError:
+    print("the characters.json file not found.")
+
 
 
 # Get all characters and paginate them.
@@ -23,7 +25,6 @@ def get_characters():
         paginated.append(characters[i])
 
     return jsonify(paginated), 200
-
 
 if __name__ == "__main__":
     app.run(debug=True)
