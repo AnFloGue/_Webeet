@@ -42,6 +42,15 @@ def get_characters():
 
     return jsonify(paginated), 200
 
+# get an specific character by its ID   C_R_UD - By ID
+@app.route("/characters/<int:id>", methods=["GET"])
+def get_character_by_id(id):
+    
+    for character in characters:
+        if character["id"] == id:
+            return jsonify(character), 200
+        
+    return jsonify({"error": "Character not found"}), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
