@@ -40,17 +40,29 @@ def get_characters():
     for i in range(trim_lower_bound, max_limit):
         paginated.append(characters[i])
 
-    return jsonify(paginated), 200
+    return jsonify(paginated), 200    # converting my dictionary to a JSON for the API as useful HTTP response.
 
 # get an specific character by its ID   C_R_UD - By ID
 @app.route("/characters/<int:id>", methods=["GET"])
 def get_character_by_id(id):
-    
-    for character in characters:
-        if character["id"] == id:
-            return jsonify(character), 200
-        
-    return jsonify({"error": "Character not found"}), 404
+    """
+    Retrieve a specific character by its ID.
+
+    Args:
+    id (int): The ID of the character to retrieve.
+
+    Returns:
+    - JSON response containing the character data if found.
+    - HTTP status code 200 if the character is found.
+    - JSON response with an error message if the character is not found.
+    - HTTP status code 404 if the character is not found.
+    """
+    for single_character in characters:
+        if single_character["id"] == id:
+            return jsonify(single_character), 200  # converting my dictionary to a JSON for the API as useful HTTP response.
+    return jsonify({"error": "Character not found"}), 404   # the character does not exist in my list
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
