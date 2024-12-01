@@ -1,5 +1,4 @@
-from flask import Flask, request, jsonify, json
-
+from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Loading JSON data into an in-memory Python list.
