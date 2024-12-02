@@ -622,17 +622,5 @@
         "age": 25,
         "death": null,
         "strength": "Bravery"
-    },
-    {
-        "id": 53,
-        "name": "Updated 234",
-        "house": "New House",
-        "animal": "Dragon",
-        "symbol": "Dragon",
-        "nickname": "The Brave",
-        "role": "Warrior",
-        "age": 30,
-        "death": null,
-        "strength": "Bravery"
     }
 ]

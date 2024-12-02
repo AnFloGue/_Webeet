@@ -100,6 +100,22 @@ def edit_character(id):
         
     return jsonify({"error": "Character not found"}), 404
 
+# Delete a character  CRU_D
+@app.route("/characters/<int:id>", methods=["DELETE"])
+def delete_character(id):
+    global characters
+    characters_to_delete = []
+    for character in characters:
+        if character["id"] != id:
+            characters_to_delete.append(character)
+    characters = characters_to_delete
+
+    # Save the updated list to the characters.json file
+    with open("characters.json", "w") as file:
+        json.dump(characters, file, indent=4)
+
+    return jsonify({"message": "Character deleted"}), 200
+
 
 if __name__ == "__main__":
     app.run(debug=True)
